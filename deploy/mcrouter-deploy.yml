@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    component: mcrouter
+  name: mcrouter
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: mcrouter
+  template:
+    metadata:
+      labels:
+        component: mcrouter
+    spec:
+      containers:
+      - name: mcrouter
+        image: daginwu/mcrouter
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            memory: 128Mi
+          requests:
+            memory: 64Mi

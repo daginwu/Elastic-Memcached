@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    component: memcached
+  name: memcached
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      component: memcached
+  serviceName: memcached
+  podManagementPolicy: Parallel
+  template:
+    metadata:
+      labels:
+        component: memcached
+    spec:
+      containers:
+        - name: memcached
+          args: ["memcached", "-m", "64"]
+          image: memcached
+          ports:
+            - containerPort: 11211
+              name: memcached
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: memcached
+          readinessProbe:
+            tcpSocket:
+              port: memcached
+          resources:
+            limits:
+              memory: 96Mi
+            requests:
+              memory: 64Mi

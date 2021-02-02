@@ -1,0 +1,12 @@
+{
+    "pools": {
+        "PoolA": {
+            "servers": [
+                "memcached-0.memcached.default.svc.cluster.local:11211",
+                "memcached-1.memcached.default.svc.cluster.local:11211",
+                "memcached-2.memcached.default.svc.cluster.local:11211"
+            ]
+        }
+    },
+    "route": "PoolRoute|PoolA"
+}
