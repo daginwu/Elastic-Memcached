@@ -41,7 +41,7 @@ telnet localhost 5000
 Licensed under the MIT License
 
 ## Authors
-Copyright(c) 2021 daginwu@gmail.com <daginwu@gmail.com>
+Copyright(c) 2021 daginwu <daginwu@gmail.com>
 
 
 
